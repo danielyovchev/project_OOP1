@@ -24,5 +24,5 @@ public class Shape {
     public void setY(int y) {
         this.y = y;
     }
-    
+
 }
