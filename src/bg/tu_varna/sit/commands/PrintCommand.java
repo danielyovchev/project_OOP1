@@ -1,6 +1,6 @@
 package bg.tu_varna.sit.commands;
 
-public class OpenCommand implements Command{
+public class PrintCommand implements Command{
     @Override
     public void execute(Object[] args) {
 
