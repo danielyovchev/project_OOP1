@@ -1,6 +1,6 @@
-package bg.tu_varna.sit;
+package bg.tu_varna.sit.shapes;
 
-public class Line extends Shape{
+public class Line extends Shape {
     private int x2;
     private int y2;
 

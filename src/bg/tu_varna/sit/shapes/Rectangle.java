@@ -1,6 +1,6 @@
-package bg.tu_varna.sit;
+package bg.tu_varna.sit.shapes;
 
-public class Rectangle extends Shape{
+public class Rectangle extends Shape {
     private int width;
     private int height;
 

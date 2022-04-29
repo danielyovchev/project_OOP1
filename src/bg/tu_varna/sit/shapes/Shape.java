@@ -1,4 +1,4 @@
-package bg.tu_varna.sit;
+package bg.tu_varna.sit.shapes;
 
 public class Shape {
     private int x;

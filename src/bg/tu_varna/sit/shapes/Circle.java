@@ -1,6 +1,6 @@
-package bg.tu_varna.sit;
+package bg.tu_varna.sit.shapes;
 
-public class Circle extends Shape{
+public class Circle extends Shape {
     private int radius;
 
     public Circle(int x, int y, int radius) {
