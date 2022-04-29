@@ -1,8 +1,7 @@
 package bg.tu_varna.sit;
 
 import bg.tu_varna.sit.Exceptions.InvalidCommandException;
-import bg.tu_varna.sit.commands.Command;
-import bg.tu_varna.sit.commands.CommandFactory;
+import bg.tu_varna.sit.commands.*;
 
 import java.util.Scanner;
 

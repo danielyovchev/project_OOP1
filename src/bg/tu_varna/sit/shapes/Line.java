@@ -1,13 +1,32 @@
 package bg.tu_varna.sit.shapes;
 
-public class Line extends Shape {
+public class Line implements Shape{
+    private int x;
+    private int y;
     private int x2;
     private int y2;
 
     public Line(int x, int y, int x2, int y2) {
-        super(x, y);
+        this.x = x;
+        this.y = y;
         this.x2 = x2;
         this.y2 = y2;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
     }
 
     public int getX2() {
@@ -24,5 +43,15 @@ public class Line extends Shape {
 
     public void setY2(int y2) {
         this.y2 = y2;
+    }
+
+    @Override
+    public String toString() {
+        return "Line{" +
+                "x=" + x +
+                ", y=" + y +
+                ", x2=" + x2 +
+                ", y2=" + y2 +
+                '}';
     }
 }
