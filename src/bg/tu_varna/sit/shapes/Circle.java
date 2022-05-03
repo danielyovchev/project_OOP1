@@ -1,10 +1,22 @@
 package bg.tu_varna.sit.shapes;
 
-public class Circle implements Shape{
-    private int radius;
-    private int x;
-    private int y;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement(name= "circle")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Circle implements Shape{
+    @XmlAttribute
+    private int radius;
+    @XmlAttribute
+    private int x;
+    @XmlAttribute
+    private int y;
+    public Circle(){
+
+    }
     public Circle(int radius, int x, int y) {
         this.radius = radius;
         this.x = x;

@@ -1,11 +1,21 @@
 package bg.tu_varna.sit.shapes;
 
-public class Line implements Shape{
-    private int x;
-    private int y;
-    private int x2;
-    private int y2;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement(name="line")
+public class Line implements Shape{
+    @XmlAttribute
+    private int x;
+    @XmlAttribute
+    private int y;
+    @XmlAttribute
+    private int x2;
+    @XmlAttribute
+    private int y2;
+    public Line(){
+
+    }
     public Line(int x, int y, int x2, int y2) {
         this.x = x;
         this.y = y;
