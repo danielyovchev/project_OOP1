@@ -14,13 +14,16 @@ public class Circle implements Shape{
     private int x;
     @XmlAttribute
     private int y;
+    @XmlAttribute
+    private String fill;
     public Circle(){
 
     }
-    public Circle(int radius, int x, int y) {
+    public Circle(int radius, int x, int y, String fill) {
         this.radius = radius;
         this.x = x;
         this.y = y;
+        this.fill=fill;
     }
 
     public int getRadius() {
@@ -45,6 +48,14 @@ public class Circle implements Shape{
 
     public void setY(int y) {
         this.y = y;
+    }
+
+    public String getFill() {
+        return fill;
+    }
+
+    public void setFill(String fill) {
+        this.fill = fill;
     }
 
     @Override

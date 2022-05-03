@@ -13,14 +13,17 @@ public class Line implements Shape{
     private int x2;
     @XmlAttribute
     private int y2;
+    @XmlAttribute
+    private String fill;
     public Line(){
 
     }
-    public Line(int x, int y, int x2, int y2) {
+    public Line(int x, int y, int x2, int y2, String fill) {
         this.x = x;
         this.y = y;
         this.x2 = x2;
         this.y2 = y2;
+        this.fill=fill;
     }
 
     public int getX() {
@@ -53,6 +56,14 @@ public class Line implements Shape{
 
     public void setY2(int y2) {
         this.y2 = y2;
+    }
+
+    public String getFill() {
+        return fill;
+    }
+
+    public void setFill(String fill) {
+        this.fill = fill;
     }
 
     @Override

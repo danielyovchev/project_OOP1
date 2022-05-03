@@ -13,14 +13,17 @@ public class Rectangle implements Shape{
     private int x;
     @XmlAttribute
     private int y;
+    @XmlAttribute
+    private String fill;
     public Rectangle(){
 
     }
-    public Rectangle(int width, int height, int x, int y) {
+    public Rectangle(int width, int height, int x, int y, String fill) {
         this.width = width;
         this.height = height;
         this.x = x;
         this.y = y;
+        this.fill=fill;
     }
 
     public int getWidth() {
@@ -53,5 +56,24 @@ public class Rectangle implements Shape{
 
     public void setY(int y) {
         this.y = y;
+    }
+
+    public String getFill() {
+        return fill;
+    }
+
+    public void setFill(String fill) {
+        this.fill = fill;
+    }
+
+    @Override
+    public String toString() {
+        return "Rectangle{" +
+                "width=" + width +
+                ", height=" + height +
+                ", x=" + x +
+                ", y=" + y +
+                ", fill='" + fill + '\'' +
+                '}';
     }
 }
