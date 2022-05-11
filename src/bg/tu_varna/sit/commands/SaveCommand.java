@@ -2,14 +2,9 @@ package bg.tu_varna.sit.commands;
 
 import bg.tu_varna.sit.Exceptions.FileNotOpenedException;
 import bg.tu_varna.sit.ShapeFactory;
-import bg.tu_varna.sit.shapes.Circle;
-import bg.tu_varna.sit.shapes.Shape;
-
 import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
-import javax.xml.namespace.QName;
 import java.io.*;
 
 public class SaveCommand implements Command{
@@ -18,11 +13,7 @@ public class SaveCommand implements Command{
         /*if(!OpenCommand.openedFile){
             throw new FileNotOpenedException();
         }*/
-        //test only
-        /*Circle circle = new Circle();
-        circle.setRadius(10);
-        circle.setX(2);
-        circle.setY(5);*/
+
         ShapeFactory shapeFactory = new ShapeFactory();
         shapeFactory.addToList();
         try {
