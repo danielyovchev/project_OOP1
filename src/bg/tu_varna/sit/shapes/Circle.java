@@ -64,6 +64,7 @@ public class Circle implements Shape{
                 "radius=" + radius +
                 ", x=" + x +
                 ", y=" + y +
+                ", fill='" + fill + '\'' +
                 '}';
     }
 }

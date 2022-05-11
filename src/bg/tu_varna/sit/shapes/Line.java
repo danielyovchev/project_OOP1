@@ -1,9 +1,12 @@
 package bg.tu_varna.sit.shapes;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name="line")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Line implements Shape{
     @XmlAttribute
     private int x;
@@ -73,6 +76,7 @@ public class Line implements Shape{
                 ", y=" + y +
                 ", x2=" + x2 +
                 ", y2=" + y2 +
+                ", fill='" + fill + '\'' +
                 '}';
     }
 }
