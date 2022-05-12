@@ -15,23 +15,24 @@ public class SaveCommand implements Command{
         }*/
 
         ShapeFactory shapeFactory = new ShapeFactory();
-        shapeFactory.addToList();
+        //shapeFactory.addToList();
         try {
             JAXBContext jc = JAXBContext.newInstance(ShapeFactory.class);
             Marshaller marshaller = jc.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-            FileWriter fileWriter = new FileWriter("test.svg");
+            //FileWriter fileWriter = new FileWriter("test.svg");
+            File file = new File("testEnd.svg");
             //JAXBElement<ShapeFactory> jaxbElement = new JAXBElement<>(new QName("","shapeFactory"),ShapeFactory.class,shapeFactory);
             //File file=new File("test.svg");
-            marshaller.marshal(shapeFactory, fileWriter);
-            fileWriter.close();
+            marshaller.marshal(shapeFactory, file);
+            //fileWriter.close();
             /*if(file.createNewFile()){
                 System.out.println("GOOD");
             }
             else {
                 System.out.println("Shit");
             }*/
-        } catch (JAXBException | IOException e){
+        } catch (JAXBException e){
             e.printStackTrace();
         }
         System.out.println("Successfully saved");

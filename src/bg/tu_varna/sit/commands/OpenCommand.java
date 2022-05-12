@@ -3,6 +3,7 @@ package bg.tu_varna.sit.commands;
 import bg.tu_varna.sit.ShapeFactory;
 import bg.tu_varna.sit.shapes.Shape;
 
+import javax.xml.XMLConstants;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
@@ -24,6 +25,7 @@ public class OpenCommand implements Command{
         try {
             JAXBContext jaxbContext = JAXBContext.newInstance(ShapeFactory.class);
             Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+            //unmarshaller.setProperty(XMLConstants.ACCESS_EXTERNAL_DTD, Boolean.TRUE);
             File file = new File("test.svg");
             shapeFactory = (ShapeFactory)unmarshaller.unmarshal(file);
             for(Shape shape: shapeFactory.shapeList){

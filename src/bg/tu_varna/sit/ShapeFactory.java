@@ -16,7 +16,7 @@ public class ShapeFactory {
             @XmlElement(name="line", type = Line.class)
     })
     @XmlElementWrapper
-    public List<Shape> shapeList = new ArrayList<>();
+    public static List<Shape> shapeList = new ArrayList<>();
     public List<Shape> addToList(){
         shapeList.add(new Circle(20,10,5,"green"));
         shapeList.add(new Line(6,10,16,22,"red"));

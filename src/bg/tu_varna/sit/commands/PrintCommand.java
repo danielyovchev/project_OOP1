@@ -6,7 +6,6 @@ public class PrintCommand implements Command{
     @Override
     public void execute(Object[] args) {
         ShapeFactory shapeFactory = new ShapeFactory();
-        shapeFactory.addToList();
         shapeFactory.printAll();
     }
 }
