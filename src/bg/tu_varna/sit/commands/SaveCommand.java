@@ -10,12 +10,11 @@ import java.io.*;
 public class SaveCommand implements Command{
     @Override
     public void execute(Object[] args) throws FileNotOpenedException{
-        /*if(!OpenCommand.openedFile){
+        if(!OpenCommand.openedFile){
             throw new FileNotOpenedException();
-        }*/
+        }
 
         ShapeFactory shapeFactory = new ShapeFactory();
-        //shapeFactory.addToList();
         try {
             JAXBContext jc = JAXBContext.newInstance(ShapeFactory.class);
             Marshaller marshaller = jc.createMarshaller();

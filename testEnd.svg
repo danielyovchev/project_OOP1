@@ -4,5 +4,6 @@
         <circle radius="20" x="10" y="5" fill="green"/>
         <line x="6" y="10" x2="16" y2="22" fill="red"/>
         <rect width="15" height="20" x="6" y="10" fill="blue"/>
+        <circle radius="20" x="20" y="10" fill="blue"/>
     </shapeList>
 </svg>

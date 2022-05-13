@@ -17,15 +17,17 @@ public class ShapeFactory {
     })
     @XmlElementWrapper
     public static List<Shape> shapeList = new ArrayList<>();
-    public List<Shape> addToList(){
-        shapeList.add(new Circle(20,10,5,"green"));
-        shapeList.add(new Line(6,10,16,22,"red"));
-        shapeList.add(new Rectangle(15,20,6,10,"blue"));
+    public List<Shape> addToList(Shape shape){
+        //shapeList.add(new Circle(20,10,5,"green"));
+        //shapeList.add(new Line(6,10,16,22,"red"));
+        //shapeList.add(new Rectangle(15,20,6,10,"blue"));
+        shapeList.add(shape);
         return shapeList;
     }
     public void printAll(){
         for(Shape shape: shapeList){
-            System.out.println(shape);
+            int num= shapeList.indexOf(shape)+1;
+            System.out.println(num+". "+shape);
         }
     }
 
