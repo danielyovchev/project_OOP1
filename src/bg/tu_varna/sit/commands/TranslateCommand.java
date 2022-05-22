@@ -15,8 +15,26 @@ public class TranslateCommand implements Command{
         Scanner scanner = new Scanner(System.in);
         int vertical = scanner.nextInt();
         int horizontal = scanner.nextInt();
-        Integer index = scanner.nextInt();
-        if(index==null){
+        String num = scanner.nextLine();
+        if(!num.isEmpty()){
+            int index = Integer.parseInt(num.trim())-1;
+            Shape translatedShape = shapeList.get(index);
+            if(translatedShape instanceof Circle){
+                ((Circle) translatedShape).setY(((Circle) translatedShape).getY()+vertical);
+                ((Circle) translatedShape).setX(((Circle) translatedShape).getX()+horizontal);
+            }
+            if(translatedShape instanceof Rectangle){
+                ((Rectangle) translatedShape).setY(((Rectangle) translatedShape).getY()+vertical);
+                ((Rectangle) translatedShape).setX(((Rectangle) translatedShape).getX()+horizontal);
+            }
+            if(translatedShape instanceof Line){
+                ((Line) translatedShape).setY(((Line) translatedShape).getY()+vertical);
+                ((Line) translatedShape).setX(((Line) translatedShape).getX()+horizontal);
+                ((Line) translatedShape).setY2(((Line) translatedShape).getY2()+vertical);
+                ((Line) translatedShape).setX2(((Line) translatedShape).getX2()+horizontal);
+            }
+        }
+        else{
             for(Shape shape: shapeList){
                 if(shape instanceof Circle){
                     ((Circle) shape).setX(((Circle) shape).getX()+horizontal);
@@ -32,23 +50,6 @@ public class TranslateCommand implements Command{
                     ((Line) shape).setX2(((Line) shape).getX2()+horizontal);
                     ((Line) shape).setY2(((Line) shape).getY2()+vertical);
                 }
-            }
-        }
-        else{
-            Shape translatedShape = shapeList.get(index);
-            if(translatedShape instanceof Circle){
-                ((Circle) translatedShape).setY(((Circle) translatedShape).getY()+vertical);
-                ((Circle) translatedShape).setX(((Circle) translatedShape).getX()+horizontal);
-            }
-            if(translatedShape instanceof Rectangle){
-                ((Rectangle) translatedShape).setY(((Rectangle) translatedShape).getY()+vertical);
-                ((Rectangle) translatedShape).setX(((Rectangle) translatedShape).getX()+horizontal);
-            }
-            if(translatedShape instanceof Line){
-                ((Line) translatedShape).setY(((Line) translatedShape).getY()+vertical);
-                ((Line) translatedShape).setX(((Line) translatedShape).getX()+horizontal);
-                ((Line) translatedShape).setY2(((Line) translatedShape).getY2()+vertical);
-                ((Line) translatedShape).setX2(((Line) translatedShape).getX2()+horizontal);
             }
         }
         System.out.println("Translate");
