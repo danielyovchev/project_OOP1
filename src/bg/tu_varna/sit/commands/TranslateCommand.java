@@ -33,6 +33,7 @@ public class TranslateCommand implements Command{
                 ((Line) translatedShape).setY2(((Line) translatedShape).getY2()+vertical);
                 ((Line) translatedShape).setX2(((Line) translatedShape).getX2()+horizontal);
             }
+            System.out.println("Translate");
         }
         else{
             for(Shape shape: shapeList){
@@ -51,7 +52,8 @@ public class TranslateCommand implements Command{
                     ((Line) shape).setY2(((Line) shape).getY2()+vertical);
                 }
             }
+            System.out.println("Translated all figures");
         }
-        System.out.println("Translate");
+
     }
 }
