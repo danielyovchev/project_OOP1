@@ -1,6 +1,7 @@
 package bg.tu_varna.sit.commands;
 
 import bg.tu_varna.sit.Exceptions.FileNotOpenedException;
+import bg.tu_varna.sit.Exceptions.InvalidFigureException;
 import bg.tu_varna.sit.ShapeFactory;
 import bg.tu_varna.sit.shapes.Circle;
 import bg.tu_varna.sit.shapes.Line;
@@ -11,7 +12,7 @@ import java.util.Scanner;
 public class CreateCommand implements Command{
 
     @Override
-    public void execute(Object[] args) throws FileNotOpenedException {
+    public void execute(Object[] args) throws FileNotOpenedException, InvalidFigureException {
         if(!OpenCommand.openedFile){
             throw new FileNotOpenedException();
         }
@@ -26,6 +27,9 @@ public class CreateCommand implements Command{
         }
         else if(input.equalsIgnoreCase("line")){
             ShapeFactory.shapeList.add(new Line(scanner.nextInt(), scanner.nextInt(), scanner.nextInt(), scanner.nextInt(), scanner.next()));
+        }
+        else{
+            throw new InvalidFigureException();
         }
     }
 }
