@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import static bg.tu_varna.sit.ShapeFactory.shapeList;
+import static sun.swing.MenuItemLayoutHelper.max;
 
 public class WithinCommand implements Command{
     @Override
@@ -27,12 +28,21 @@ public class WithinCommand implements Command{
                     }
                 }
                 else if(shape instanceof Rectangle){
-                    if(true){
+                    int dx=max(x-((Rectangle) shape).getX(),(((Rectangle) shape).getX()+((Rectangle) shape).getWidth())-x);
+                    int dy=max(y-((Rectangle) shape).getY(),(((Rectangle) shape).getY()+((Rectangle) shape).getHeight())-y);
+                    int result=dx*dx+dy*dy;
+                    if(result<=radius*radius){
                         withinShapes.add(shape);
                     }
                 }
                 else if(shape instanceof Line){
-                    if(true){
+                    int x1= (int) Math.pow((((Line) shape).getX()-x),2);
+                    int y1= (int) Math.pow((((Line) shape).getY()-y),2);
+                    int res1=x1+y1;
+                    int x2= (int) Math.pow((((Line) shape).getX2()-x),2);
+                    int y2= (int) Math.pow((((Line) shape).getY2()-y),2);
+                    int res2=x2+y2;
+                    if(res1<=radius*radius && res2<=radius*radius){
                         withinShapes.add(shape);
                     }
                 }
