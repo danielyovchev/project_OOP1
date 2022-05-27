@@ -27,10 +27,10 @@ public class ShapeFactory {
             System.out.println(num+". "+shape);
         }
     }
-    public List<Shape> shapeList(int num){
+    /*public List<Shape> shapeList(int num){
         shapeList.remove(num);
         return shapeList;
-    }
+    }*/
     public void setShapeList(List<Shape> shapeList) {
         this.shapeList = shapeList;
     }
