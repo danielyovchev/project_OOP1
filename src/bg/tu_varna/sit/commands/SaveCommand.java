@@ -20,7 +20,7 @@ public class SaveCommand implements Command{
             Marshaller marshaller = jc.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             //FileWriter fileWriter = new FileWriter("test.svg");
-            File file = new File("testEnd.svg");
+            File file = new File("test.svg");
             //JAXBElement<ShapeFactory> jaxbElement = new JAXBElement<>(new QName("","shapeFactory"),ShapeFactory.class,shapeFactory);
             //File file=new File("test.svg");
             marshaller.marshal(shapeFactory, file);

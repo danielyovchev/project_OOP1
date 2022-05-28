@@ -24,22 +24,21 @@ public class CreateCommand implements Command{
             if(args.length<5){
                 throw new InvalidArgumentException();
             }
-            int radius = Integer.parseInt(args[1].toString());
-            int x = Integer.parseInt(args[2].toString());
-            int y = Integer.parseInt(args[3].toString());
+            int x = Integer.parseInt(args[1].toString());
+            int y = Integer.parseInt(args[2].toString());
+            int radius = Integer.parseInt(args[3].toString());
             String fill = args[4].toString();
-
-            ShapeFactory.shapeList.add(new Circle(radius,x,y,fill));
+            ShapeFactory.shapeList.add(new Circle(x,y,radius,fill));
             //ShapeFactory.shapeList.add(new Circle(scanner.nextInt(), scanner.nextInt(), scanner.nextInt(), scanner.next()));
         }
         else if(input.equalsIgnoreCase("rectangle")){
             if(args.length<6){
                 throw new InvalidArgumentException();
             }
-            int width = Integer.parseInt(args[1].toString());
-            int height = Integer.parseInt(args[2].toString());
-            int x = Integer.parseInt(args[3].toString());
-            int y = Integer.parseInt(args[4].toString());
+            int x = Integer.parseInt(args[1].toString());
+            int y = Integer.parseInt(args[2].toString());
+            int width = Integer.parseInt(args[3].toString());
+            int height = Integer.parseInt(args[4].toString());
             String fill = args[5].toString();
             ShapeFactory.shapeList.add(new Rectangle(x,y,width,height,fill));
             //ShapeFactory.shapeList.add(new Rectangle(scanner.nextInt(), scanner.nextInt(), scanner.nextInt(), scanner.nextInt(), scanner.next()));
@@ -52,7 +51,6 @@ public class CreateCommand implements Command{
             int y = Integer.parseInt(args[2].toString());
             int x2 = Integer.parseInt(args[3].toString());
             int y2 = Integer.parseInt(args[4].toString());
-            String fill = args[5].toString();
             ShapeFactory.shapeList.add(new Line(x,y,x2,y2));
             //ShapeFactory.shapeList.add(new Line(scanner.nextInt(), scanner.nextInt(), scanner.nextInt(), scanner.nextInt(), scanner.next()));
         }

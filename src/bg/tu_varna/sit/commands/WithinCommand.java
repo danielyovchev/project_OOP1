@@ -1,5 +1,6 @@
 package bg.tu_varna.sit.commands;
 
+import bg.tu_varna.sit.Exceptions.InvalidArgumentException;
 import bg.tu_varna.sit.shapes.*;
 
 import java.util.ArrayList;
@@ -11,15 +12,22 @@ import static sun.swing.MenuItemLayoutHelper.max;
 
 public class WithinCommand implements Command{
     @Override
-    public void execute(Object[] args) {
+    public void execute(Object[] args) throws InvalidArgumentException {
         String search="";
         List<Shape> withinShapes = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
-        String figure = scanner.next();
+        //String figure = scanner.next();
+        String figure = args[0].toString();
         if(figure.equalsIgnoreCase("circle")){
-            int radius = scanner.nextInt();
+            if(args.length<4){
+                throw new InvalidArgumentException();
+            }
+            int x = Integer.parseInt(args[1].toString());
+            int y = Integer.parseInt(args[2].toString());
+            int radius = Integer.parseInt(args[3].toString());
+            /*int radius = scanner.nextInt();
             int x = scanner.nextInt();
-            int y = scanner.nextInt();
+            int y = scanner.nextInt();*/
             for(Shape shape: shapeList){
                 if(shape instanceof Circle){
                     int distance=(int)Math.sqrt(((x-((Circle) shape).getX())*(x-((Circle) shape).getX()))+((y-((Circle) shape).getY())*(y-((Circle) shape).getY())));
@@ -52,10 +60,17 @@ public class WithinCommand implements Command{
             }
         }
         else if(figure.equalsIgnoreCase("rectangle")){
-            int width = scanner.nextInt();
+            if(args.length<5){
+                throw new InvalidArgumentException();
+            }
+            int x = Integer.parseInt(args[1].toString());
+            int y = Integer.parseInt(args[2].toString());
+            int width = Integer.parseInt(args[3].toString());
+            int height = Integer.parseInt(args[4].toString());
+            /*int width = scanner.nextInt();
             int height = scanner.nextInt();
             int x = scanner.nextInt();
-            int y = scanner.nextInt();
+            int y = scanner.nextInt();*/
             for(Shape shape: shapeList){
                 if(shape instanceof Circle){
                     if(((Circle) shape).getX()>x && ((Circle) shape).getY()>y && (((Circle) shape).getX()+((Circle) shape).getRadius()*2<=x+width) && (((Circle) shape).getY()+((Circle) shape).getRadius()*2<=y+height)){
@@ -73,7 +88,7 @@ public class WithinCommand implements Command{
                     }
                 }
                 else {
-                    search="rectangle "+width+" "+height+" "+x+" "+y;
+                    search="rectangle "+x+" "+y+" "+width+" "+height;
                 }
             }
         }

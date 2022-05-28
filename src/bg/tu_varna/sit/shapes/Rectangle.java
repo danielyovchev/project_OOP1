@@ -9,13 +9,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Rectangle implements Shape{
     @XmlAttribute
-    private int width;
-    @XmlAttribute
-    private int height;
-    @XmlAttribute
     private int x;
     @XmlAttribute
     private int y;
+    @XmlAttribute
+    private int width;
+    @XmlAttribute
+    private int height;
     @XmlAttribute
     private String fill;
     public Rectangle(){
@@ -71,12 +71,11 @@ public class Rectangle implements Shape{
 
     @Override
     public String toString() {
-        return "Rectangle{" +
-                "width=" + width +
-                ", height=" + height +
-                ", x=" + x +
+        return "rectangle" +
+                "x=" + x +
                 ", y=" + y +
-                ", fill='" + fill + '\'' +
-                '}';
+                ", width=" + width +
+                ", height=" + height +
+                ", fill='" + fill + '\'';
     }
 }

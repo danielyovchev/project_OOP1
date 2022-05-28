@@ -8,18 +8,18 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name= "circle")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Circle implements Shape{
-    @XmlAttribute
-    private int radius;
-    @XmlAttribute
+    @XmlAttribute(name="cx")
     private int x;
-    @XmlAttribute
+    @XmlAttribute(name = "cy")
     private int y;
+    @XmlAttribute(name="r")
+    private int radius;
     @XmlAttribute
     private String fill;
     public Circle(){
 
     }
-    public Circle(int radius, int x, int y, String fill) {
+    public Circle(int x, int y, int radius, String fill) {
         this.radius = radius;
         this.x = x;
         this.y = y;
@@ -60,11 +60,10 @@ public class Circle implements Shape{
 
     @Override
     public String toString() {
-        return "Circle{" +
-                "radius=" + radius +
-                ", x=" + x +
+        return "circle" +
+                "x=" + x +
                 ", y=" + y +
-                ", fill='" + fill + '\'' +
-                '}';
+                ", radius=" + radius +
+                ", fill='" + fill + '\'';
     }
 }

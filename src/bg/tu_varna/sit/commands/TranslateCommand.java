@@ -13,9 +13,13 @@ public class TranslateCommand implements Command{
     @Override
     public void execute(Object[] args) {
         Scanner scanner = new Scanner(System.in);
-        int vertical = scanner.nextInt();
-        int horizontal = scanner.nextInt();
-        String num = scanner.nextLine();
+        System.out.print("vertical");
+        //int vertical = scanner.nextInt();
+        int vertical = Integer.parseInt(args[0].toString());
+        System.out.print("horizontal");
+        //int horizontal = scanner.nextInt();
+        int horizontal = Integer.parseInt(args[1].toString());
+        String num = args[2].toString();
         if(!num.isEmpty()){
             int index = Integer.parseInt(num.trim())-1;
             Shape translatedShape = shapeList.get(index);
