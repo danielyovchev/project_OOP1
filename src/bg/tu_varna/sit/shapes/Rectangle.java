@@ -21,7 +21,7 @@ public class Rectangle implements Shape{
     public Rectangle(){
 
     }
-    public Rectangle(int width, int height, int x, int y, String fill) {
+    public Rectangle(int x, int y, int width, int height, String fill) {
         this.width = width;
         this.height = height;
         this.x = x;
