@@ -4,15 +4,12 @@ import bg.tu_varna.sit.Exceptions.InvalidArgumentException;
 import bg.tu_varna.sit.ShapeFactory;
 import bg.tu_varna.sit.shapes.Shape;
 
-import javax.xml.XMLConstants;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.Arrays;
-import java.util.List;
 
 public class OpenCommand implements Command{
     public static boolean openedFile=false;
@@ -20,25 +17,30 @@ public class OpenCommand implements Command{
     public static String filename;
     @Override
     public void execute(Object[] args) throws InvalidArgumentException {
-        /*if(args.length == 0){
+        if(args.length == 0){
             throw new InvalidArgumentException();
-        }*/
+        }
         path=String.join(" ", Arrays.stream(args).toArray(String[]::new));
-        //filename=path.substring(path.lastIndexOf("\\"));
+        filename=path.substring(path.lastIndexOf("\\"));
         openedFile=true;
-        ShapeFactory shapeFactory = new ShapeFactory();
+        ShapeFactory shapeFactory;
         try {
             JAXBContext jaxbContext = JAXBContext.newInstance(ShapeFactory.class);
             Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-            //unmarshaller.setProperty(XMLConstants.ACCESS_EXTERNAL_DTD, Boolean.TRUE);
-            File file = new File("test.svg");
-            shapeFactory = (ShapeFactory) unmarshaller.unmarshal(file);
-            for(Shape shape: shapeFactory.shapeList){
-                System.out.println(shape);
+            File file = new File(path);
+            if(file.createNewFile()){
+                System.out.println("Successfully created" + filename);
             }
-        }catch (JAXBException e){
+            else {
+                shapeFactory = (ShapeFactory) unmarshaller.unmarshal(file);
+                for (Shape shape : shapeFactory.shapeList) {
+                    System.out.println(shape);
+                }
+            }
+        }
+        catch (JAXBException | IOException e ){
             e.printStackTrace();
         }
-        System.out.println("Successfully opened " + path);
+        System.out.println("Successfully opened " + filename);
     }
 }
