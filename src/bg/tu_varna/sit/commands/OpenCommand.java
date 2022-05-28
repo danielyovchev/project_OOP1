@@ -2,7 +2,7 @@ package bg.tu_varna.sit.commands;
 
 import bg.tu_varna.sit.Exceptions.InvalidArgumentException;
 import bg.tu_varna.sit.ShapeFactory;
-import bg.tu_varna.sit.shapes.Shape;
+
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -23,7 +23,7 @@ public class OpenCommand implements Command{
         path=String.join(" ", Arrays.stream(args).toArray(String[]::new));
         filename=path.substring(path.lastIndexOf("\\"));
         openedFile=true;
-        ShapeFactory shapeFactory;
+
         try {
             JAXBContext jaxbContext = JAXBContext.newInstance(ShapeFactory.class);
             Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
@@ -32,10 +32,7 @@ public class OpenCommand implements Command{
                 System.out.println("Successfully created" + filename);
             }
             else {
-                shapeFactory = (ShapeFactory) unmarshaller.unmarshal(file);
-                for (Shape shape : shapeFactory.shapeList) {
-                    System.out.println(shape);
-                }
+                ShapeFactory shapeFactory = (ShapeFactory) unmarshaller.unmarshal(file);
             }
         }
         catch (JAXBException | IOException e ){
