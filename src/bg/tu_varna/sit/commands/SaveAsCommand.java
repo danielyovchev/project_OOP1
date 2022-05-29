@@ -18,7 +18,6 @@ public class SaveAsCommand implements Command{
             throw new FileNotOpenedException();
         }
         String filepath=String.join(" ", Arrays.stream(args).toArray(String[]::new));
-        System.out.println(filepath);
         ObjectToSVG.objectToSVG(shapeFactory,filepath);
         String fileName = filepath.substring(filepath.lastIndexOf("\\")+1);
         System.out.println("Successfully saved "+ fileName);

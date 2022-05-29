@@ -9,8 +9,7 @@ public class CloseCommand implements Command{
         if(!OpenCommand.openedFile){
             throw new FileNotOpenedException();
         }
-        ShapeFactory shapeFactory=new ShapeFactory();
-        shapeFactory.getShapeList().clear();
+        ShapeFactory.getShapeList().clear();
         OpenCommand.openedFile=false;
         System.out.println("Successfully closed "+ OpenCommand.filename);
     }

@@ -22,24 +22,24 @@ public class ShapeFactory {
     public ShapeFactory() {
     }
 
-    public List<Shape> addToList(Shape shape){
+    public static List<Shape> addToList(Shape shape){
         shapeList.add(shape);
         return shapeList;
     }
-    public void printAll(){
+    public static void printAll(){
         for(Shape shape: shapeList){
             int num= shapeList.indexOf(shape)+1;
             System.out.println(num+". "+shape);
         }
     }
-    public List<Shape> removeFromList(int index){
+    public static List<Shape> removeFromList(int index){
         shapeList.remove(index);
         return shapeList;
     }
     public void setShapeList(List<Shape> shapeList) {
         this.shapeList = shapeList;
     }
-    public List<Shape> getShapeList() {
+    public static List<Shape> getShapeList() {
         return shapeList;
     }
 }

@@ -3,6 +3,7 @@ package bg.tu_varna.sit.commands;
 import bg.tu_varna.sit.Exceptions.FileNotOpenedException;
 import bg.tu_varna.sit.Exceptions.InvalidArgumentException;
 import bg.tu_varna.sit.ShapeFactory;
+import bg.tu_varna.sit.parser.SVGToObject;
 
 
 import javax.xml.bind.JAXBContext;
@@ -22,9 +23,9 @@ public class OpenCommand implements Command{
             throw new InvalidArgumentException();
         }
         path=String.join(" ", Arrays.stream(args).toArray(String[]::new));
-        filename=path.substring(path.lastIndexOf("\\"));
+        SVGToObject.svgToObject(path);
         openedFile=true;
-        try {
+        /*try {
             JAXBContext jaxbContext = JAXBContext.newInstance(ShapeFactory.class);
             Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
             File file = new File(path);
@@ -33,12 +34,13 @@ public class OpenCommand implements Command{
             }
             else {
                 ShapeFactory shapeFactory = (ShapeFactory) unmarshaller.unmarshal(file);
-                System.out.println("Successfully opened " + filename);
+
             }
         }
         catch (JAXBException | IOException e ){
             throw new FileNotOpenedException();
-        }
-
+        }*/
+        filename=path.substring(path.lastIndexOf("\\"));
+        System.out.println("Successfully opened " + filename);
     }
 }

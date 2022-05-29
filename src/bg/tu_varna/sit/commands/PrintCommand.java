@@ -9,7 +9,6 @@ public class PrintCommand implements Command{
         if(!OpenCommand.openedFile){
             throw new FileNotOpenedException();
         }
-        ShapeFactory shapeFactory = new ShapeFactory();
-        shapeFactory.printAll();
+        ShapeFactory.printAll();
     }
 }

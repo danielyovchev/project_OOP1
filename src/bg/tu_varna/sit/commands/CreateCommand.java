@@ -15,7 +15,6 @@ public class CreateCommand implements Command{
         if(!OpenCommand.openedFile){
             throw new FileNotOpenedException();
         }
-        ShapeFactory shapeFactory=new ShapeFactory();
         String input = args[0].toString();
         if(input.equalsIgnoreCase("circle")){
             if(args.length<5){
@@ -25,8 +24,7 @@ public class CreateCommand implements Command{
             int y = Integer.parseInt(args[2].toString());
             int radius = Integer.parseInt(args[3].toString());
             String fill = args[4].toString();
-            //shapeFactory.getShapeList().add(new Circle(x,y,radius,fill));
-            shapeFactory.addToList(new Circle(x,y,radius,fill));
+            ShapeFactory.addToList(new Circle(x,y,radius,fill));
         }
         else if(input.equalsIgnoreCase("rectangle")){
             if(args.length<6){
@@ -37,8 +35,7 @@ public class CreateCommand implements Command{
             int width = Integer.parseInt(args[3].toString());
             int height = Integer.parseInt(args[4].toString());
             String fill = args[5].toString();
-            shapeFactory.addToList(new Rectangle(x,y,width,height,fill));
-            //shapeFactory.getShapeList().add(new Rectangle(x,y,width,height,fill));
+            ShapeFactory.addToList(new Rectangle(x,y,width,height,fill));
         }
         else if(input.equalsIgnoreCase("line")){
             if(args.length<5){
@@ -48,8 +45,7 @@ public class CreateCommand implements Command{
             int y = Integer.parseInt(args[2].toString());
             int x2 = Integer.parseInt(args[3].toString());
             int y2 = Integer.parseInt(args[4].toString());
-            shapeFactory.addToList(new Line(x,y,x2,y2));
-            //shapeFactory.getShapeList().add(new Line(x,y,x2,y2));
+            ShapeFactory.addToList(new Line(x,y,x2,y2));
         }
         else{
             throw new InvalidFigureException();
