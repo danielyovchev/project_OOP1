@@ -1,5 +1,6 @@
 package bg.tu_varna.sit.commands;
 
+import bg.tu_varna.sit.Exceptions.FileNotOpenedException;
 import bg.tu_varna.sit.Exceptions.InvalidArgumentException;
 import bg.tu_varna.sit.ShapeFactory;
 import bg.tu_varna.sit.shapes.Circle;
@@ -9,7 +10,10 @@ import bg.tu_varna.sit.shapes.Shape;
 
 public class TranslateCommand implements Command{
     @Override
-    public void execute(Object[] args) throws InvalidArgumentException {
+    public void execute(Object[] args) throws InvalidArgumentException, FileNotOpenedException {
+        if(!OpenCommand.openedFile){
+            throw new FileNotOpenedException();
+        }
         int vertical = Integer.parseInt(args[0].toString());
         int horizontal = Integer.parseInt(args[1].toString());
         if(args.length == 2){

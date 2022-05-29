@@ -41,6 +41,9 @@ public class OpenCommand implements Command{
             throw new FileNotOpenedException();
         }*/
         filename=path.substring(path.lastIndexOf("\\"));
-        System.out.println("Successfully opened " + filename);
+        if(filename.substring(0,1).equalsIgnoreCase("\\")){
+            System.out.println("Successfully opened " + filename.substring(1));
+        }
+        else System.out.println(filename);
     }
 }
