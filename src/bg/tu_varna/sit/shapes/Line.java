@@ -60,10 +60,9 @@ public class Line implements Shape{
 
     @Override
     public String toString() {
-        return "line" +
-                "x=" + x +
-                ", y=" + y +
-                ", x2=" + x2 +
-                ", y2=" + y2 + '\'';
+        return "line " + x +
+                " " + y +
+                " " + x2 +
+                " " + y2;
     }
 }

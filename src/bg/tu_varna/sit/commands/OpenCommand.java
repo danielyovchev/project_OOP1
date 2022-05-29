@@ -1,5 +1,6 @@
 package bg.tu_varna.sit.commands;
 
+import bg.tu_varna.sit.Exceptions.FileNotOpenedException;
 import bg.tu_varna.sit.Exceptions.InvalidArgumentException;
 import bg.tu_varna.sit.ShapeFactory;
 
@@ -16,14 +17,13 @@ public class OpenCommand implements Command{
     public static String path;
     public static String filename;
     @Override
-    public void execute(Object[] args) throws InvalidArgumentException {
+    public void execute(Object[] args) throws InvalidArgumentException, FileNotOpenedException {
         if(args.length == 0){
             throw new InvalidArgumentException();
         }
         path=String.join(" ", Arrays.stream(args).toArray(String[]::new));
         filename=path.substring(path.lastIndexOf("\\"));
         openedFile=true;
-
         try {
             JAXBContext jaxbContext = JAXBContext.newInstance(ShapeFactory.class);
             Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
@@ -33,11 +33,12 @@ public class OpenCommand implements Command{
             }
             else {
                 ShapeFactory shapeFactory = (ShapeFactory) unmarshaller.unmarshal(file);
+                System.out.println("Successfully opened " + filename);
             }
         }
         catch (JAXBException | IOException e ){
-            e.printStackTrace();
+            throw new FileNotOpenedException();
         }
-        System.out.println("Successfully opened " + filename);
+
     }
 }

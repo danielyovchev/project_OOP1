@@ -60,10 +60,9 @@ public class Circle implements Shape{
 
     @Override
     public String toString() {
-        return "circle" +
-                "x=" + x +
-                ", y=" + y +
-                ", radius=" + radius +
-                ", fill='" + fill + '\'';
+        return "circle " + x +
+                " " + y +
+                " " + radius +
+                " " + fill;
     }
 }

@@ -1,13 +1,14 @@
 package bg.tu_varna.sit.commands;
 
 import bg.tu_varna.sit.Exceptions.InvalidArgumentException;
+import bg.tu_varna.sit.ShapeFactory;
 import bg.tu_varna.sit.shapes.*;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import static bg.tu_varna.sit.ShapeFactory.shapeList;
+//import static bg.tu_varna.sit.ShapeFactory.shapeList;
 import static sun.swing.MenuItemLayoutHelper.max;
 
 public class WithinCommand implements Command{
@@ -15,8 +16,8 @@ public class WithinCommand implements Command{
     public void execute(Object[] args) throws InvalidArgumentException {
         String search="";
         List<Shape> withinShapes = new ArrayList<>();
+        ShapeFactory shapeFactory = new ShapeFactory();
         Scanner scanner = new Scanner(System.in);
-        //String figure = scanner.next();
         String figure = args[0].toString();
         if(figure.equalsIgnoreCase("circle")){
             if(args.length<4){
@@ -25,10 +26,7 @@ public class WithinCommand implements Command{
             int x = Integer.parseInt(args[1].toString());
             int y = Integer.parseInt(args[2].toString());
             int radius = Integer.parseInt(args[3].toString());
-            /*int radius = scanner.nextInt();
-            int x = scanner.nextInt();
-            int y = scanner.nextInt();*/
-            for(Shape shape: shapeList){
+            for(Shape shape: shapeFactory.getShapeList()){
                 if(shape instanceof Circle){
                     int distance=(int)Math.sqrt(((x-((Circle) shape).getX())*(x-((Circle) shape).getX()))+((y-((Circle) shape).getY())*(y-((Circle) shape).getY())));
                     if(distance+((Circle) shape).getRadius()<=radius){
@@ -71,7 +69,7 @@ public class WithinCommand implements Command{
             int height = scanner.nextInt();
             int x = scanner.nextInt();
             int y = scanner.nextInt();*/
-            for(Shape shape: shapeList){
+            for(Shape shape: shapeFactory.getShapeList()){
                 if(shape instanceof Circle){
                     if(((Circle) shape).getX()>x && ((Circle) shape).getY()>y && (((Circle) shape).getX()+((Circle) shape).getRadius()*2<=x+width) && (((Circle) shape).getY()+((Circle) shape).getRadius()*2<=y+height)){
                         withinShapes.add(shape);

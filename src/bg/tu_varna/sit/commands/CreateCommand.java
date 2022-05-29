@@ -8,8 +8,6 @@ import bg.tu_varna.sit.shapes.Circle;
 import bg.tu_varna.sit.shapes.Line;
 import bg.tu_varna.sit.shapes.Rectangle;
 
-import java.util.Scanner;
-
 public class CreateCommand implements Command{
 
     @Override
@@ -17,8 +15,7 @@ public class CreateCommand implements Command{
         if(!OpenCommand.openedFile){
             throw new FileNotOpenedException();
         }
-        Scanner scanner = new Scanner(System.in);
-        //String input = scanner.next();
+        ShapeFactory shapeFactory=new ShapeFactory();
         String input = args[0].toString();
         if(input.equalsIgnoreCase("circle")){
             if(args.length<5){
@@ -28,8 +25,8 @@ public class CreateCommand implements Command{
             int y = Integer.parseInt(args[2].toString());
             int radius = Integer.parseInt(args[3].toString());
             String fill = args[4].toString();
-            ShapeFactory.shapeList.add(new Circle(x,y,radius,fill));
-            //ShapeFactory.shapeList.add(new Circle(scanner.nextInt(), scanner.nextInt(), scanner.nextInt(), scanner.next()));
+            //shapeFactory.getShapeList().add(new Circle(x,y,radius,fill));
+            shapeFactory.addToList(new Circle(x,y,radius,fill));
         }
         else if(input.equalsIgnoreCase("rectangle")){
             if(args.length<6){
@@ -40,8 +37,8 @@ public class CreateCommand implements Command{
             int width = Integer.parseInt(args[3].toString());
             int height = Integer.parseInt(args[4].toString());
             String fill = args[5].toString();
-            ShapeFactory.shapeList.add(new Rectangle(x,y,width,height,fill));
-            //ShapeFactory.shapeList.add(new Rectangle(scanner.nextInt(), scanner.nextInt(), scanner.nextInt(), scanner.nextInt(), scanner.next()));
+            shapeFactory.addToList(new Rectangle(x,y,width,height,fill));
+            //shapeFactory.getShapeList().add(new Rectangle(x,y,width,height,fill));
         }
         else if(input.equalsIgnoreCase("line")){
             if(args.length<5){
@@ -51,8 +48,8 @@ public class CreateCommand implements Command{
             int y = Integer.parseInt(args[2].toString());
             int x2 = Integer.parseInt(args[3].toString());
             int y2 = Integer.parseInt(args[4].toString());
-            ShapeFactory.shapeList.add(new Line(x,y,x2,y2));
-            //ShapeFactory.shapeList.add(new Line(scanner.nextInt(), scanner.nextInt(), scanner.nextInt(), scanner.nextInt(), scanner.next()));
+            shapeFactory.addToList(new Line(x,y,x2,y2));
+            //shapeFactory.getShapeList().add(new Line(x,y,x2,y2));
         }
         else{
             throw new InvalidFigureException();

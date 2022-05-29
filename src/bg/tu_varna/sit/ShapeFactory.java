@@ -9,6 +9,7 @@ import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 @XmlRootElement(name="svg")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class ShapeFactory {
     @XmlElements({
             @XmlElement(name="circle", type = Circle.class),
@@ -16,7 +17,11 @@ public class ShapeFactory {
             @XmlElement(name="line", type = Line.class)
     })
     @XmlElementWrapper
-    public static List<Shape> shapeList = new ArrayList<>();
+    private static List<Shape> shapeList = new ArrayList<>();
+
+    public ShapeFactory() {
+    }
+
     public List<Shape> addToList(Shape shape){
         shapeList.add(shape);
         return shapeList;
@@ -27,10 +32,14 @@ public class ShapeFactory {
             System.out.println(num+". "+shape);
         }
     }
+    public List<Shape> removeFromList(int index){
+        shapeList.remove(index);
+        return shapeList;
+    }
     public void setShapeList(List<Shape> shapeList) {
         this.shapeList = shapeList;
     }
-    /*public List<Shape> getShapeList() {
+    public List<Shape> getShapeList() {
         return shapeList;
-    }*/
+    }
 }
