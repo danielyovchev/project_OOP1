@@ -80,7 +80,6 @@ public class WithinCommand implements Command{
                         withinShapes.add(shape);
                     }
                 }
-
             }
         }
         if(withinShapes.isEmpty()){
