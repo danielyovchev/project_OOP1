@@ -1,8 +1,6 @@
 package bg.tu_varna.sit.commands;
 
-import bg.tu_varna.sit.Exceptions.FileNotOpenedException;
-import bg.tu_varna.sit.Exceptions.InvalidArgumentException;
-import bg.tu_varna.sit.Exceptions.InvalidFigureException;
+import bg.tu_varna.sit.Exceptions.*;
 import bg.tu_varna.sit.ShapeFactory;
 import bg.tu_varna.sit.shapes.Circle;
 import bg.tu_varna.sit.shapes.Line;
@@ -11,7 +9,7 @@ import bg.tu_varna.sit.shapes.Rectangle;
 public class CreateCommand implements Command{
 
     @Override
-    public void execute(Object[] args) throws FileNotOpenedException, InvalidFigureException, InvalidArgumentException {
+    public void execute(Object[] args) throws FileNotOpenedException, InvalidFigureException, InvalidArgumentException, InvalidRectangleException, InvalidCircleException {
         if(!OpenCommand.openedFile){
             throw new FileNotOpenedException();
         }
@@ -24,6 +22,9 @@ public class CreateCommand implements Command{
             int y = Integer.parseInt(args[2].toString());
             int radius = Integer.parseInt(args[3].toString());
             String fill = args[4].toString();
+            if(radius<0){
+                throw new InvalidCircleException();
+            }
             ShapeFactory.addToList(new Circle(x,y,radius,fill));
         }
         else if(input.equalsIgnoreCase("rectangle")){
@@ -35,6 +36,9 @@ public class CreateCommand implements Command{
             int width = Integer.parseInt(args[3].toString());
             int height = Integer.parseInt(args[4].toString());
             String fill = args[5].toString();
+            if(width<=0 || height <=0){
+                throw new InvalidRectangleException();
+            }
             ShapeFactory.addToList(new Rectangle(x,y,width,height,fill));
         }
         else if(input.equalsIgnoreCase("line")){
