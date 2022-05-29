@@ -11,8 +11,8 @@ public class EraseCommand implements Command{
             throw new FileNotOpenedException();
         }
         int index=Integer.parseInt(args[0].toString());
-        if(index>ShapeFactory.getShapeList().size()){
-            System.out.println("Number of figures is "+ShapeFactory.getShapeList().size());
+        if(index>ShapeFactory.getShapeList().size() || index < 0){
+            System.out.println("Number of figures is "+ ShapeFactory.getShapeList().size());
             throw new InvalidNumberException();
         }
         ShapeFactory.removeFromList(index-1);
