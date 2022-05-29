@@ -87,8 +87,10 @@ public class WithinCommand implements Command{
             System.out.println("No figures are located within " + search);
         }
         else{
+            int index=1;
             for(Shape shape: withinShapes){
-                System.out.println(shape);
+                System.out.println(index+". "+shape);
+                index++;
             }
         }
     }
