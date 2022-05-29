@@ -71,7 +71,7 @@ public class WithinCommand implements Command{
                     }
                 }
                 else if(shape instanceof Rectangle){
-                    if(((Rectangle) shape).getX()>x && ((Rectangle) shape).getY()>y && (((Rectangle) shape).getX()+((Rectangle) shape).getWidth()<=x+width) && (((Rectangle) shape).getY()+((Rectangle) shape).getHeight()<=y+height)){
+                    if(((Rectangle) shape).getX()>x && ((Rectangle) shape).getY()>y && (((Rectangle) shape).getX()+((Rectangle) shape).getWidth()<x+width) && (((Rectangle) shape).getY()+((Rectangle) shape).getHeight()<y+height)){
                         withinShapes.add(shape);
                     }
                 }
