@@ -1,5 +1,6 @@
 package bg.tu_varna.sit.commands;
 
+import bg.tu_varna.sit.Exceptions.EmptyCollectionException;
 import bg.tu_varna.sit.Exceptions.FileNotOpenedException;
 import bg.tu_varna.sit.Exceptions.InvalidArgumentException;
 import bg.tu_varna.sit.ShapeFactory;
@@ -12,9 +13,12 @@ import static sun.swing.MenuItemLayoutHelper.max;
 
 public class WithinCommand implements Command{
     @Override
-    public void execute(Object[] args) throws InvalidArgumentException, FileNotOpenedException {
+    public void execute(Object[] args) throws InvalidArgumentException, FileNotOpenedException, EmptyCollectionException {
         if(!OpenCommand.openedFile){
             throw new FileNotOpenedException();
+        }
+        if(ShapeFactory.getShapeList().isEmpty()){
+            throw new EmptyCollectionException();
         }
         String search="";
         List<Shape> withinShapes = new ArrayList<>();
