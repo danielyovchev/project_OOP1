@@ -17,10 +17,8 @@ public class OpenCommand implements Command{
         path=String.join(" ", Arrays.stream(args).toArray(String[]::new));
         SVGToObject.svgToObject(path);
         openedFile=true;
-        filename=path.substring(path.lastIndexOf("\\"));
-        if(filename.substring(0,1).equalsIgnoreCase("\\")){
-            System.out.println("Successfully opened " + filename.substring(1));
-        }
-        else System.out.println(filename);
+        filename=path.substring(path.lastIndexOf("\\")+1);
+        System.out.println("Successfully opened " + filename);
+
     }
 }
