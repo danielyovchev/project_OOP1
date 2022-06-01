@@ -15,7 +15,7 @@ public class CreateCommand implements Command{
         }
         String input = args[0].toString();
         if(input.equalsIgnoreCase("circle")){
-            if(args.length<5){
+            if(args.length!=5){
                 throw new InvalidArgumentException();
             }
             int x = Integer.parseInt(args[1].toString());
@@ -28,7 +28,7 @@ public class CreateCommand implements Command{
             ShapeFactory.addToList(new Circle(x,y,radius,fill));
         }
         else if(input.equalsIgnoreCase("rectangle")){
-            if(args.length<6){
+            if(args.length!=6){
                 throw new InvalidArgumentException();
             }
             int x = Integer.parseInt(args[1].toString());
@@ -42,7 +42,7 @@ public class CreateCommand implements Command{
             ShapeFactory.addToList(new Rectangle(x,y,width,height,fill));
         }
         else if(input.equalsIgnoreCase("line")){
-            if(args.length<5){
+            if(args.length!=5){
                 throw new InvalidArgumentException();
             }
             int x = Integer.parseInt(args[1].toString());
