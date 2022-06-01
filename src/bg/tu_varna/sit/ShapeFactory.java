@@ -16,7 +16,7 @@ public class ShapeFactory {
             @XmlElement(name="rect", type = Rectangle.class),
             @XmlElement(name="line", type = Line.class)
     })
-    @XmlElementWrapper
+    @XmlElementWrapper(name="g")
     private static List<Shape> shapeList = new ArrayList<>();
 
     public ShapeFactory() {
