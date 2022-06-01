@@ -30,7 +30,7 @@ public class WithinCommand implements Command{
             int x = Integer.parseInt(args[1].toString());
             int y = Integer.parseInt(args[2].toString());
             int radius = Integer.parseInt(args[3].toString());
-            search="circle "+ x + " "+y;
+            search="circle "+ x + " "+y+" "+radius;
             for(Shape shape: ShapeFactory.getShapeList()){
                 if(shape instanceof Circle){
                     int distance=(int)Math.sqrt(((x-((Circle) shape).getX())*(x-((Circle) shape).getX()))+((y-((Circle) shape).getY())*(y-((Circle) shape).getY())));
