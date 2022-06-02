@@ -12,6 +12,6 @@ public class SaveCommand implements Command{
         }
         ShapeFactory shapeFactory = new ShapeFactory();
         ObjectToSVG.objectToSVG(shapeFactory,OpenCommand.path);
-        System.out.println("Successfully saved"+OpenCommand.filename);
+        System.out.println("Successfully saved "+OpenCommand.filename);
     }
 }
