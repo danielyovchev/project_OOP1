@@ -18,13 +18,11 @@ public class ShapeFactory {
     })
     @XmlElementWrapper(name="g")
     private static List<Shape> shapeList = new ArrayList<>();
-
     public ShapeFactory() {
     }
 
-    public static List<Shape> addToList(Shape shape){
+    public static void addToList(Shape shape){
         shapeList.add(shape);
-        return shapeList;
     }
     public static void printAll(){
         for(Shape shape: shapeList){
@@ -32,13 +30,10 @@ public class ShapeFactory {
             System.out.println(num+". "+shape);
         }
     }
-    public static List<Shape> removeFromList(int index){
+    public static void removeFromList(int index){
         shapeList.remove(index);
-        return shapeList;
     }
-    public void setShapeList(List<Shape> shapeList) {
-        this.shapeList = shapeList;
-    }
+
     public static List<Shape> getShapeList() {
         return shapeList;
     }
